@@ -19,6 +19,7 @@ a:focus { overflow: hidden; }
 
 body {
     font: 300 12px/1.5 Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #000;
     background: #f4f4f4;
 }
@@ -205,8 +206,10 @@ a.linkedImage {
     #logo h1,
     #logo h2 {
         line-height: 1;
+        font-family: 'Fondamento', cursive;
         font-size: 48px;
         text-shadow: #011c3f 0 2px;
+        font-weight: bold;
         position: absolute;
         top: 30px;
         left: 0;
