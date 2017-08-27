@@ -1,0 +1,16 @@
+<footer id="footer" class="jumbotron">
+  <div class="container">
+    &copy; {{ now|date('Y') }} {{ siteTitle }}
+    <nav class="pull-right">
+      <ul class="nav nav-pills">
+        {% for footer in footerLinks %}
+          <li{% if footer.selected %} class="selected"{% endif %}>
+            <a href="{{ footer.url }}" title="{{ footer.title }}"{% if footer.rel %} rel="{{ footer.rel }}"{% endif %}>
+              {{ footer.navigation_title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</footer>

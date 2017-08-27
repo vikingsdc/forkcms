@@ -1,0 +1,87 @@
+/*
+
+	Stylesheet for urlaub
+
+	Media: screen, projection
+	Author: 
+
+*/
+
+img#flag {
+	position: absolute;
+	padding-top: 5px;
+	right: 10px;
+}
+
+#language-drodown {
+	min-width: 75px;
+}
+
+#top-position {
+    position: absolute;
+    right: 15px;
+    top: -25px;
+}
+
+#footer {
+    margin-top: 1em;
+    padding-top: 0.1em;
+    padding-bottom: 0;
+}
+
+#breadcrumb *{
+    display: inline;
+    font-size: 12px;
+}
+
+#headerSearch h4 {
+    display: none;
+}
+
+.breadcrumb {
+    display: inline;
+}
+#headertext {
+    padding-left: 25px;
+}
+
+header.jumbotron {
+    margin-bottom: 5px;
+}
+.subnav {
+    float: left;
+    min-width: 100px;
+    margin: 25px;
+}
+.subnav-row {
+    border: 1px solid #337ab7;
+    min-height: 30px;
+    display: flex;
+align-items: center;
+}
+
+.subnav-row div {
+    margin: auto;
+}
+.subnav-active {
+    background-color: aqua;
+}
+
+#header {
+    position: relative;
+}
+
+#navbrand {
+    cursor: pointer;
+}
+
+.btn-group-vertical {
+    display: inherit;
+    padding-top: 5px;
+}
+
+@media (min-width: 768px) {
+        #navbrand {
+        display: none;
+    }
+}

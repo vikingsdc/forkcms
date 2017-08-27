@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+	<name>Bootstrap-Gray</name>
+	<version>1.0.0</version>
+	<requirements>
+		<minimum_version>4.0.0</minimum_version>
+	</requirements>
+	<thumbnail>thumbnail.png</thumbnail>
+	<description>
+		<![CDATA[ A basic bootstrap theme, based on the default theme "triton". Triton is made my Yoni De Beule http://www.yonidebeule.be/.
+		]]>
+	</description>
+	<authors>
+		<author>
+			<name>Johannes Wiese</name>
+			<url>http://jwiese.eu</url>
+		</author>
+	</authors>
+	<metanavigation supported="false" />
+	<templates>
+		<template label="Default" path="Core/Layout/Templates/Default.html.twig">
+			<positions>
+				<position name="main" />
+				<position name="right" />
+				<position name="top">
+					<defaults>
+						<widget module="search" action="form" />
+					</defaults>
+				</position>
+			</positions>
+			<format>
+				[/,/,/,top],[/,/,/,/],[main,main,main,right]
+			</format>
+		</template>
+	</templates>
+</theme>

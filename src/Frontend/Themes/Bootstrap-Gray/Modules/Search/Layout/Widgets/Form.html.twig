@@ -1,0 +1,14 @@
+<div id="headerSearch">
+  <h4>{{ 'lbl.Search'|trans|ucfirst }}</h4>
+
+  {% form search %}
+  <div class="oneLiner">
+    {% form_field q_widget %}
+    
+        <button id="submit" class="btn btn-default btn-sm" type="submit" value="{{ 'lbl.Search'|trans|ucfirst }}" >
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    
+  </div>
+  {% endform %}
+</div>

@@ -1,0 +1,103 @@
+{% include "Core/Layout/Templates/Head.html.twig" %}
+
+<body class="{{ FRONTEND_LANGUAGE }}" itemscope itemtype="http://schema.org/WebPage">
+{% include "Core/Layout/Templates/Cookies.html.twig" %}
+
+<header id="header" class="jumbotron">
+    {# Name + Breadcumbs #}
+    <div class="container" id="header">
+        <h2><a href="/">{{ siteTitle }}</a></h2>
+		<ol class="breadcrumb">
+		  {% include "Core/Layout/Templates/Breadcrumb.html.twig" %}
+		</ol>
+        {# Top positions #}
+        <div id="top-position">
+            {% for top in positions.top %}
+            {% if top.html %}
+                {{ top.html|raw }}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</header>
+    
+{# Navigation #}
+<div class="container">
+    {{ getnavigation('page', 0, 1) }}
+</div>
+    
+<div id="main">
+	<div class="container">
+		{# Main column #}
+        {# Scale full size if no widget#}
+		<div {% if positions.right %}class="col-md-8 col-sm-7"{% endif %}>
+            {# Subnavigation #}
+            {# Hide on startpage (you can not delete page 1) #}
+            {% if page.id != 1 %}
+            {# Only show when necessary #}
+            {% if page.parent_id != 1 or page.has_children %}
+                <div class="subnav">
+                    {{ getsubnavigation('page',page.id,2,3,NULL, '/Core/Layout/Templates/Subnavigation.html.twig') }}
+                </div>
+            {% endif %}
+            {% endif %}
+            
+            {# Page title #}
+            {% if not hideContentTitle %}
+                <header class="mainTitle">
+                    <h1>{{ page.title|raw }}</h1>
+                </header>
+            {% endif %}
+
+            {# Main positions #}
+            {% for main in positions.main %}
+                {% if main.html %}
+                <section class="mod">
+                    <div class="inner">
+                    <div class="bd content">
+                        {{ main.html|raw }}
+                    </div>
+                    </div>
+                </section>
+                {% endif %}
+            {% endfor %}
+		</div>
+        
+        {# Left column #}
+        {% if positions.right %}
+		<div class="col-md-4 col-sm-5">
+            {# Right positions #}
+            {% for right in positions.right %}
+                {% if right.html %}
+                <section class="mod">
+                    <div class="inner">
+                    <div class="bd content">
+                        {{ right.html|raw }}
+                    </div>
+                    </div>
+                </section>
+                {% endif %}
+            {% endfor %}
+		</div>
+        {% endif %}
+	</div>
+</div>
+<noscript>
+<div class="message notice">
+    <h4>{{ 'lbl.EnableJavascript'|trans|ucfirst }}</h4>
+    <p>{{ 'msg.EnableJavascript'|trans }}</p>
+</div>
+</noscript>
+{% include "Core/Layout/Templates/Footer.html.twig" %}
+
+{# General Javascript #}
+{% for js in jsFiles %}
+<script src="{{ js.file }}"></script>
+{% endfor %}
+
+{# Theme specific Javascript #}
+<script src="{{ THEME_URL }}/Core/Js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
+{# Site wide HTML #}
+{{ siteHTMLFooter|raw }}
+</body>
+</html>

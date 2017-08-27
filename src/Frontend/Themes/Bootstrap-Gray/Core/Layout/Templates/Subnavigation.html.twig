@@ -1,0 +1,12 @@
+{% if navigation %}
+<div class="btn-group-vertical" role="group">
+{% for nav in navigation %}
+    <a class="btn btn-default{% if nav.selected %} active{% endif %}" href="{{ nav.link }}" title="{{ nav.navigation_title }}"{% if nav.nofollow %} rel="nofollow"{% endif %}>
+        {{ nav.navigation_title|raw }}
+    </a>
+{% endfor %}
+</div>
+{% for nav in navigation %}
+{% if nav.selected %}{{ nav.children|raw }}{% endif %}
+{% endfor %}
+{% endif %}
